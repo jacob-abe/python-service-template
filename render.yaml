@@ -1,0 +1,59 @@
+services:
+  - type: web
+    name: b0-backend
+    env: python
+    region: oregon
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: LOG_LEVEL
+        value: INFO
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: AUTH_DOMAIN
+        sync: false
+      - key: AUTH_AUDIENCE
+        sync: false
+    healthCheckPath: /health
+    autoDeploy: true
+    scaling:
+      minInstances: 1
+      maxInstances: 10
+      targetCPUPercent: 70
+      targetMemoryPercent: 80
+
+# Multi-region configuration
+# To enable multi-region, uncomment and configure additional services below:
+#   - type: web
+#     name: b0-backend-eu
+#     env: python
+#     region: frankfurt
+#     plan: starter
+#     buildCommand: pip install -r requirements.txt
+#     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+#     envVars:
+#       - key: ENVIRONMENT
+#         value: production
+#       - key: LOG_LEVEL
+#         value: INFO
+#       - key: SUPABASE_URL
+#         sync: false
+#       - key: SUPABASE_KEY
+#         sync: false
+#       - key: AUTH_DOMAIN
+#         sync: false
+#       - key: AUTH_AUDIENCE
+#         sync: false
+#     healthCheckPath: /health
+#     autoDeploy: true
+#     scaling:
+#       minInstances: 1
+#       maxInstances: 10
+#       targetCPUPercent: 70
+#       targetMemoryPercent: 80
+
