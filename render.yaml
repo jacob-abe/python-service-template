@@ -3,7 +3,7 @@ services:
     name: b0-backend
     env: python
     region: oregon
-    plan: starter
+    plan: starter # TODO: change to pro
     # Build Command: Render runs this command to build your app before each deploy
     buildCommand: ./build.sh
     # Pre-Deploy Command (Optional): Render runs this command before the start command.
