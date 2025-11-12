@@ -1,0 +1,1 @@
+b0-data-models @ git+https://github.com/Base0ai/b0-data-models.git

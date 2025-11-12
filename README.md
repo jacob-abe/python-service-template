@@ -13,10 +13,34 @@ b0-backend/
 ├── tests/
 ├── env.example
 ├── requirements.txt
+├── private-requirements.txt
 ├── pytest.ini
 ├── render.yaml
 └── README.md
 ```
+
+## Setup
+
+1. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   pip install -r private-requirements.txt
+   ```
+
+   Note: `private-requirements.txt` contains private GitHub repositories. This is installed with the script in build.sh on render
+
+2. **Configure environment variables:**
+   ```bash
+   cp env.example .env
+   # Edit .env with your actual values
+   ```
+
+3. **Run the application:**
+   ```bash
+   python3 run.py
+   # or
+   make run
+   ```
 
 ## Testing
 
