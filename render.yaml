@@ -4,7 +4,12 @@ services:
     env: python
     region: oregon
     plan: starter
+    # Build Command: Render runs this command to build your app before each deploy
     buildCommand: ./build.sh
+    # Pre-Deploy Command (Optional): Render runs this command before the start command.
+    # Useful for database migrations and static asset uploads.
+    # preDeployCommand: 
+    # Start Command: Render runs this command to start your app with each deploy
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: ENVIRONMENT
@@ -36,7 +41,12 @@ services:
 #     env: python
 #     region: frankfurt
 #     plan: starter
+#     # Build Command: Render runs this command to build your app before each deploy
 #     buildCommand: ./build.sh
+#     # Pre-Deploy Command (Optional): Render runs this command before the start command.
+#     # Useful for database migrations and static asset uploads.
+#     # preDeployCommand: 
+#     # Start Command: Render runs this command to start your app with each deploy
 #     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
 #     envVars:
 #       - key: ENVIRONMENT
