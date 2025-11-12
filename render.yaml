@@ -4,13 +4,15 @@ services:
     env: python
     region: oregon
     plan: starter
-    buildCommand: pip install -r requirements.txt
+    buildCommand: ./build.sh
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: ENVIRONMENT
         value: production
       - key: LOG_LEVEL
         value: INFO
+      - key: GITHUB_TOKEN
+        sync: false
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_KEY
@@ -34,7 +36,7 @@ services:
 #     env: python
 #     region: frankfurt
 #     plan: starter
-#     buildCommand: pip install -r requirements.txt
+#     buildCommand: ./build.sh
 #     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
 #     envVars:
 #       - key: ENVIRONMENT
@@ -48,6 +50,8 @@ services:
 #       - key: AUTH_DOMAIN
 #         sync: false
 #       - key: AUTH_AUDIENCE
+#         sync: false
+#       - key: GITHUB_TOKEN
 #         sync: false
 #     healthCheckPath: /health
 #     autoDeploy: true
