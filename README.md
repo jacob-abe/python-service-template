@@ -1,5 +1,3 @@
-# Base0 Backend
-
 FastAPI backend application with CRUD operations, authentication, logging, and Supabase integration.
 
 ## Project Structure
